@@ -1471,6 +1471,14 @@
         "title": "News",
         "docs": "https://docs.rsshub.app/routes/traditional-media",
         "source": [
+          "/"
+        ],
+        "target": "/apnews/api/:tags?"
+      },
+      {
+        "title": "News",
+        "docs": "https://docs.rsshub.app/routes/traditional-media",
+        "source": [
           "/:rss"
         ],
         "target": "/apnews/rss/:rss"
@@ -2320,6 +2328,19 @@
           "/commits/:workspace/:repo_slug"
         ],
         "target": "/bitbucket/commits/:workspace/:repo_slug"
+      }
+    ]
+  },
+  "bitget.com": {
+    "_name": "Bitget",
+    "www": [
+      {
+        "title": "Announcement",
+        "docs": "https://docs.rsshub.app/routes/finance",
+        "source": [
+          "/:lang/inmail"
+        ],
+        "target": "/bitget/announcement/all/:lang"
       }
     ]
   },
@@ -3794,6 +3815,20 @@
           "/newsflash"
         ],
         "target": "/chaping/newsflash"
+      }
+    ]
+  },
+  "chikubi.jp": {
+    "_name": "乳首ふぇち",
+    ".": [
+      {
+        "title": "Category",
+        "docs": "https://docs.rsshub.app/routes/multimedia",
+        "source": [
+          "/:category",
+          "/"
+        ],
+        "target": "/chikubi/:category"
       }
     ]
   },
@@ -5637,6 +5672,19 @@
       }
     ]
   },
+  "easynomad.cn": {
+    "_name": "轻松游牧-远程工作聚集地",
+    ".": [
+      {
+        "title": "远程工作列表",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/"
+        ],
+        "target": "/easynomad/"
+      }
+    ]
+  },
   "ecnu.edu.cn": {
     "_name": "East China Normal University 华东师范大学",
     "acm": [
@@ -6350,6 +6398,19 @@
       }
     ]
   },
+  "follow.is": {
+    "_name": "Follow",
+    "app": [
+      {
+        "title": "User subscriptions",
+        "docs": "https://docs.rsshub.app/routes/social-media",
+        "source": [
+          "/profile/:uid"
+        ],
+        "target": "/follow/profile/:uid"
+      }
+    ]
+  },
   "followin.io": {
     "_name": "Followin",
     ".": [
@@ -6733,6 +6794,93 @@
       }
     ]
   },
+  "geekpark.net": {
+    "_name": "极客公园",
+    ".": [
+      {
+        "title": "栏目",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/"
+        ],
+        "target": "/geekpark/"
+      },
+      {
+        "title": "栏目",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/:column"
+        ],
+        "target": "/geekparkparams=>{const column=params.column;return column?`/${column}`:\"\"}"
+      }
+    ],
+    "www": [
+      {
+        "title": "综合报道",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/179"
+        ],
+        "target": "/geekpark/179"
+      },
+      {
+        "title": "AI新浪潮观察",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/304"
+        ],
+        "target": "/geekpark/304"
+      },
+      {
+        "title": "新造车观察",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/305"
+        ],
+        "target": "/geekpark/305"
+      },
+      {
+        "title": "财报解读",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/271"
+        ],
+        "target": "/geekpark/271"
+      },
+      {
+        "title": "底稿对话CEO系列",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/308"
+        ],
+        "target": "/geekpark/308"
+      },
+      {
+        "title": "Geek Insight 特稿系列",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/306"
+        ],
+        "target": "/geekpark/306"
+      },
+      {
+        "title": "心科技",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/307"
+        ],
+        "target": "/geekpark/307"
+      },
+      {
+        "title": "行业资讯",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/column/2"
+        ],
+        "target": "/geekpark/2"
+      }
+    ]
+  },
   "gelonghui.com": {
     "_name": "格隆汇",
     ".": [
@@ -7080,6 +7228,32 @@
           "/"
         ],
         "target": "/globallawreview/"
+      }
+    ]
+  },
+  "mhlw.go.jp": {
+    "_name": "JapanGov",
+    "www": [
+      {
+        "title": "PDF",
+        "docs": "https://docs.rsshub.app/routes/government",
+        "source": [
+          "/"
+        ],
+        "target": "/go(_,url)=>{const category=new URL(url).href.match(/mhlw\\.go\\.jp\\/(.*)$/)?.[1]??void 0;return`/mhlw/pdf${category?`/${category}`:\"\"}`}"
+      }
+    ]
+  },
+  "niid.go.jp": {
+    "_name": "JapanGov",
+    "www": [
+      {
+        "title": "感染症発生動向調査週報ダウンロード",
+        "docs": "https://docs.rsshub.app/routes/government",
+        "source": [
+          "/niid/ja/idwr-dl/:year"
+        ],
+        "target": "/goparams=>{const year=params.year;return`/niid/idwr-dl/${year?`/${year}`:\"\"}`}"
       }
     ]
   },
@@ -10790,6 +10964,19 @@
       }
     ]
   },
+  "kakuyomu.jp": {
+    "_name": "カクヨム",
+    ".": [
+      {
+        "title": "投稿",
+        "docs": "https://docs.rsshub.app/routes/reading",
+        "source": [
+          "/works/:id"
+        ],
+        "target": "/kakuyomu/works/:id"
+      }
+    ]
+  },
   "kaopu.news": {
     "_name": "靠谱新闻",
     ".": [
@@ -11590,6 +11777,19 @@
           "/"
         ],
         "target": "/lsnu/jiaowc/tzgg"
+      }
+    ]
+  },
+  "lu.ma": {
+    "_name": "LuMa",
+    ".": [
+      {
+        "title": "Events",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:url"
+        ],
+        "target": "/luma/:url"
       }
     ]
   },
